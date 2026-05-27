@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수원시 중소기업 무상자금 신청 | 우성테크노파크</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="수원시 중소기업 무상자금 신청">
+<meta property="og:description" content="최대 7,000만원 무상지원 | 금리 2.9% 고정 | 선착순 15명 무료 세미나 | 2026.6.9(화) 오전 11시 | 우성테크노파크 지하3층">
+<meta property="og:locale" content="ko_KR">
+<meta name="description" content="최대 7,000만원 무상지원 | 금리 2.9% 고정 | 선착순 15명 무료 세미나">
+
+<!-- 카카오 SDK -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
+  integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4"
+  crossorigin="anonymous"></script>
+
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #0B1730;
+  --navy2:   #111E3A;
+  --navy3:   #172444;
+  --border:  #1D2E54;
+  --gold:    #C8A020;
+  --gold2:   #E5BE4A;
+  --teal:    #18967A;
+  --teal2:   #1DB896;
+  --muted:   #7A8BAA;
+  --text:    #E8EDF5;
+  --red:     #C0392B;
+  --red-bg:  #2A0A08;
+  --radius:  12px;
+}
+
+body {
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ===== TOP ANNOUNCEMENT BAR ===== */
+.top-bar {
+  background: var(--gold);
+  color: var(--navy);
+  text-align: center;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(160deg, #0B1730 0%, #142040 60%, #0E1A35 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 24px 20px 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% -20%, #C8A02018 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-year { font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.header-title { font-size: 26px; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 6px; }
+.header-title em { color: var(--gold); font-style: normal; }
+.header-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+.header-badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.badge {
+  padding: 5px 13px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; white-space: nowrap;
+}
+.badge-gold  { background: var(--gold); color: var(--navy); }
+.badge-line  { border: 1.5px solid var(--gold); color: var(--gold); }
+.badge-red   { background: var(--red-bg); color: #FF9999; border: 1px solid #7A1515; }
+
+/* ===== STICKY PROGRESS ===== */
+.progress-wrap {
+  background: var(--navy);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 20px 0;
+  position: sticky; top: 0; z-index: 50;
+}
+.steps { display: flex; justify-content: center; }
+.step {
+  flex: 1; max-width: 90px;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+}
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute; top: 14px; left: 58%;
+  width: 84%; height: 2px;
+  background: var(--border); z-index: 0;
+  transition: background .3s;
+}
+.step.done:not(:last-child)::after { background: var(--gold); }
+.step-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--border); border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  z-index: 1; transition: all .3s;
+}
+.step.active .step-dot { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.step.done  .step-dot { background: var(--teal); border-color: var(--teal); color: #fff; }
+.step-lbl { font-size: 10px; color: var(--muted); margin-top: 5px; white-space: nowrap; }
+.step.active .step-lbl { color: var(--gold); font-weight: 700; }
+.step.done   .step-lbl { color: var(--teal2); }
+.progress-spacer { height: 16px; }
+
+/* ===== MAIN CONTENT ===== */
+.main { padding: 20px; max-width: 620px; margin: 0 auto; }
+
+/* ===== PAGE VISIBILITY ===== */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.card-title {
+  font-size: 14px; font-weight: 700; color: var(--gold);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.ci-gold   { background: #C8A02018; color: var(--gold); }
+.ci-teal   { background: #18967A18; color: var(--teal2); }
+.ci-purple { background: #7B6FC418; color: #A89EE8; }
+
+/* ===== FORM ===== */
+.fg { margin-bottom: 13px; }
+.fg:last-child { margin-bottom: 0; }
+.fl {
+  display: block; font-size: 12px; color: var(--muted);
+  margin-bottom: 5px; font-weight: 600;
+}
+.req { color: #FF7777; margin-left: 3px; }
+.fi, .fs, .fta {
+  width: 100%; background: var(--navy);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius); color: var(--text);
+  font-size: 15px; padding: 11px 14px;
+  outline: none; transition: border-color .2s;
+  font-family: inherit;
+}
+.fi:focus, .fs:focus, .fta:focus { border-color: var(--gold); }
+.fi::placeholder { color: #2E3E5E; }
+.fs option { background: var(--navy2); }
+.fta { resize: vertical; min-height: 88px; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ===== RADIO / CHECK ===== */
+.radio-g, .check-g { display: flex; flex-wrap: wrap; gap: 8px; }
+.rbtn {
+  flex: 1; min-width: 90px;
+  background: var(--navy); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 9px 10px;
+  cursor: pointer; text-align: center;
+  font-size: 13px; color: var(--muted);
+  transition: all .2s; user-select: none;
+}
+.rbtn:hover { border-color: #C8A02060; }
+.rbtn.sel { border-color: var(--gold); color: var(--gold); background: #C8A02012; font-weight: 700; }
+
+.chk {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--navy); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 9px 13px;
+  cursor: pointer; font-size: 13px; color: var(--muted);
+  transition: all .2s; user-select: none;
+}
+.chk.sel { border-color: var(--teal2); color: var(--teal2); background: #1DB89615; }
+.chk-box {
+  width: 17px; height: 17px; border-radius: 4px;
+  border: 2px solid var(--border); background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .2s; font-size: 11px; color: #fff;
+}
+.chk.sel .chk-box { background: var(--teal2); border-color: var(--teal2); }
+.chk-mark { display: none; }
+.chk.sel .chk-mark { display: block; }
+
+/* ===== INFO / ALERT BOXES ===== */
+.info-box {
+  background: #C8A02010; border: 1px solid #C8A02030;
+  border-radius: 10px; padding: 11px 13px;
+  font-size: 12px; color: var(--gold); line-height: 1.6; margin-top: 8px;
+}
+.alert-box {
+  background: var(--red-bg); border: 1px solid #7A1515;
+  border-radius: 10px; padding: 11px 14px;
+  font-size: 13px; color: #FFB3B3;
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 14px; font-weight: 600;
+}
+.slot-num { font-size: 18px; font-weight: 900; color: #FFD700; margin: 0 4px; }
+
+/* ===== COUPON TEASER ===== */
+.coupon-card {
+  background: #18967A12; border: 1.5px solid #18967A40;
+  border-radius: 13px; padding: 14px 16px; margin-bottom: 0;
+}
+.coupon-card .ctitle { font-size: 13px; font-weight: 700; color: var(--teal2); margin-bottom: 6px; }
+.coupon-card .cdesc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+/* ===== SEMINAR INFO GRID ===== */
+.seminar-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+  text-align: center;
+}
+.sg-cell {
+  background: var(--navy); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 8px;
+}
+.sg-cell.highlight { border-color: var(--teal2); }
+.sg-lbl { font-size: 10px; color: var(--muted); margin-bottom: 4px; }
+.sg-val { font-size: 13px; font-weight: 700; line-height: 1.4; }
+.sg-val.teal { color: var(--teal2); }
+
+/* ===== TERMS ===== */
+.terms-scroll {
+  background: var(--navy); border: 1px solid var(--border);
+  border-radius: 10px; padding: 13px; font-size: 11px; color: var(--muted);
+  line-height: 1.75; max-height: 120px; overflow-y: auto; margin-bottom: 8px;
+}
+.agree-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; cursor: pointer; border-radius: 8px;
+  transition: background .2s;
+}
+.agree-row:hover { background: #1D2E5428; }
+.ag-box {
+  width: 22px; height: 22px; border-radius: 6px;
+  border: 2px solid var(--border); background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 13px; color: var(--navy);
+  transition: all .2s;
+}
+.ag-box.on { background: var(--gold); border-color: var(--gold); }
+.ag-lbl { font-size: 13px; color: #B0BDD0; }
+.ag-lbl span { color: var(--gold); }
+
+/* ===== NAV BUTTONS ===== */
+.nav { display: flex; gap: 12px; margin-top: 8px; padding-bottom: 32px; }
+.btn-prev {
+  flex: 1; padding: 14px; background: transparent;
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  color: var(--muted); font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: all .2s; font-family: inherit;
+}
+.btn-prev:hover { border-color: var(--muted); color: #fff; }
+.btn-next {
+  flex: 2; padding: 14px; background: var(--gold); border: none;
+  border-radius: var(--radius); color: var(--navy);
+  font-size: 15px; font-weight: 900; cursor: pointer;
+  transition: all .2s; font-family: inherit; letter-spacing: 0.3px;
+}
+.btn-next:hover { background: var(--gold2); }
+.btn-next:active { transform: scale(0.98); }
+.btn-full { flex: 1; }
+
+/* ===== SUBMIT LOADING ===== */
+.sub-wrap { flex: 2; position: relative; }
+.sub-wrap .btn-next { width: 100%; }
+.sub-loading {
+  display: none; align-items: center; justify-content: center;
+  gap: 10px; padding: 14px; color: var(--gold); font-weight: 700; font-size: 15px;
+}
+.spin {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 3px solid #C8A02030; border-top-color: var(--gold);
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== SUCCESS SCREEN ===== */
+.success-wrap { text-align: center; padding: 40px 0 20px; }
+.success-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: #18967A18; border: 3px solid var(--teal2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; margin: 0 auto 20px;
+}
+.success-title { font-size: 22px; font-weight: 900; color: var(--teal2); margin-bottom: 8px; }
+.success-sub { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+
+/* ===== COUPON ISSUED ===== */
+.coupon-issued {
+  background: #18967A14; border: 2px dashed var(--teal2);
+  border-radius: 13px; padding: 18px; text-align: center; margin-bottom: 20px;
+}
+.coupon-code { font-size: 22px; font-weight: 900; color: var(--teal2); letter-spacing: 3px; margin: 8px 0; }
+.coupon-sub { font-size: 12px; color: var(--muted); }
+
+/* ===== RECEIPT ===== */
+.receipt {
+  background: var(--navy3); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px; text-align: left; margin-bottom: 20px;
+}
+.receipt-hd { font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+.receipt-row {
+  display: flex; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px solid #1D2E5450; font-size: 13px;
+}
+.receipt-row:last-child { border-bottom: none; }
+.rl { color: var(--muted); }
+.rv { color: #fff; font-weight: 600; text-align: right; max-width: 60%; }
+
+/* ===== KAKAO SHARE ===== */
+.share-card {
+  background: var(--navy2); border: 1px solid var(--border);
+  border-radius: 16px; padding: 20px; margin-bottom: 16px; text-align: center;
+}
+.share-card p { font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
+.btn-kakao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: #FEE500; color: #191919; border: none; border-radius: var(--radius);
+  padding: 14px 28px; font-size: 15px; font-weight: 900;
+  cursor: pointer; width: 100%; font-family: inherit;
+  transition: all .2s;
+}
+.btn-kakao:hover { background: #f5dc00; transform: translateY(-1px); }
+.btn-kakao svg { width: 22px; height: 22px; }
+
+.url-box {
+  background: var(--navy); border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 11px 14px;
+  display: flex; align-items: center; gap: 10px; margin-top: 12px;
+}
+.url-box span { font-size: 12px; color: var(--muted); flex: 1; word-break: break-all; }
+.btn-copy {
+  background: var(--border); border: none; border-radius: 7px;
+  color: var(--gold); font-size: 12px; font-weight: 700;
+  padding: 6px 12px; cursor: pointer; white-space: nowrap;
+  font-family: inherit; transition: all .2s; flex-shrink: 0;
+}
+.btn-copy:hover { background: #C8A02018; }
+.btn-copy.copied { color: var(--teal2); }
+
+/* ===== ADMIN BOX ===== */
+.admin-box {
+  background: var(--navy); border: 1px solid #18967A30;
+  border-radius: 10px; padding: 14px; margin-top: 16px; text-align: left;
+}
+.admin-box .ah { font-size: 13px; font-weight: 700; color: var(--teal2); margin-bottom: 6px; }
+.admin-box p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+.admin-box a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+.admin-guide {
+  background: var(--navy2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px; text-align: left; margin-top: 12px;
+}
+.code-block {
+  background: var(--navy); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px; font-family: monospace;
+  font-size: 11px; color: var(--muted); line-height: 1.8;
+  word-break: break-all; margin: 8px 0;
+}
+
+/* ===== MOU ===== */
+.mou-org {
+  background: var(--navy); border: 1px solid var(--border);
+  border-radius: 10px; padding: 11px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mou-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar" id="topBar">🎯 2026 수원시특례지원금 — 선착순 15명 마감</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-year">2026 · 경기도 중소기업 지원사업</div>
+  <div class="header-title">중소기업 <em>무상자금</em> 신청</div>
+  <div class="header-sub">중소기업 대표님을 위한 자금조달 완전 로드맵</div>
+  <div class="header-badges">
+    <span class="badge badge-gold">최대 7,000만 무상지원</span>
+    <span class="badge badge-line">금리 2.9% 고정</span>
+    <span class="badge badge-line">무료 세미나</span>
+    <span class="badge badge-red">⚡ 선착순 15명</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="steps">
+    <div class="step active" id="s1">
+      <div class="step-dot">1</div>
+      <div class="step-lbl">기업정보</div>
+    </div>
+    <div class="step" id="s2">
+      <div class="step-dot">2</div>
+      <div class="step-lbl">대표자정보</div>
+    </div>
+    <div class="step" id="s3">
+      <div class="step-dot">3</div>
+      <div class="step-lbl">자금수요</div>
+    </div>
+    <div class="step" id="s4">
+      <div class="step-dot">4</div>
+      <div class="step-lbl">약관/제출</div>
+    </div>
+  </div>
+  <div class="progress-spacer"></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- ====== PAGE 1: 기업정보 ====== -->
+  <div class="page active" id="page1">
+
+    <div class="alert-box">
+      ⚠️ 잔여 신청 가능 인원 <span class="slot-num">3</span>명 — 조기 마감될 수 있습니다
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-gold">🏢</div>기업 기본 정보</div>
+
+      <div class="fg">
+        <label class="fl">기업명 (상호) <span class="req">*</span></label>
+        <input class="fi" id="companyName" type="text" placeholder="예) 주식회사 수원테크" />
+      </div>
+      <div class="fg">
+        <label class="fl">사업자등록번호 <span class="req">*</span></label>
+        <input class="fi" id="bizNum" type="text" placeholder="000-00-00000" maxlength="12" />
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label class="fl">업종 <span class="req">*</span></label>
+          <select class="fs" id="industry">
+            <option value="">선택</option>
+            <option>제조업</option>
+            <option>IT/소프트웨어</option>
+            <option>도소매업</option>
+            <option>음식/숙박업</option>
+            <option>건설업</option>
+            <option>서비스업</option>
+            <option>기타</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">업력 <span class="req">*</span></label>
+          <select class="fs" id="bizAge">
+            <option value="">선택</option>
+            <option>창업 예정 (예비창업자)</option>
+            <option>1년 미만</option>
+            <option>1~3년</option>
+            <option>3~5년</option>
+            <option>5~10년</option>
+            <option>10년 이상</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">기업 소재지</label>
+        <input class="fi" id="address" type="text" placeholder="예) 경기도 수원시 팔달구 …" />
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label class="fl">연매출 (만원)</label>
+          <input class="fi" id="revenue" type="text" placeholder="예) 50000" />
+        </div>
+        <div class="fg">
+          <label class="fl">직원 수</label>
+          <input class="fi" id="empCount" type="text" placeholder="예) 5명" />
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn-next btn-full" onclick="goPage(2)">다음 단계 →</button>
+    </div>
+  </div><!-- /page1 -->
+
+  <!-- ====== PAGE 2: 대표자정보 ====== -->
+  <div class="page" id="page2">
+
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-gold">👤</div>대표자 정보</div>
+
+      <div class="fg">
+        <label class="fl">대표자 성명 <span class="req">*</span></label>
+        <input class="fi" id="ceoName" type="text" placeholder="홍길동" />
+      </div>
+      <div class="fg">
+        <label class="fl">연락처 <span class="req">*</span></label>
+        <input class="fi" id="phone" type="tel" placeholder="010-0000-0000" />
+      </div>
+      <div class="fg">
+        <label class="fl">이메일</label>
+        <input class="fi" id="email" type="email" placeholder="example@email.com" />
+      </div>
+      <div class="fg">
+        <label class="fl">신청 경로</label>
+        <div class="radio-g">
+          <div class="rbtn" onclick="selRadio(this)">지인 소개</div>
+          <div class="rbtn" onclick="selRadio(this)">SNS / 온라인</div>
+          <div class="rbtn" onclick="selRadio(this)">포스터 / 전단</div>
+          <div class="rbtn" onclick="selRadio(this)">기타</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-teal">🎁</div>나이스평가정보 자가진단 쿠폰</div>
+      <div class="coupon-card">
+        <div class="ctitle">✅ 참가 신청자 전원 쿠폰 지급</div>
+        <div class="cdesc">
+          신청 완료 후 <strong style="color:var(--teal2)">세미나 현장</strong>에서 나이스평가정보 자가진단 쿠폰을 발급해 드립니다.<br>
+          · 내 신용등급 및 금융정보 무료 확인<br>
+          · 대출 가능 여부 사전 자가 진단<br>
+          · 현장 담당자에게 신청서 확인 후 즉시 수령
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn-prev" onclick="goPage(1)">← 이전</button>
+      <button class="btn-next" onclick="goPage(3)">다음 단계 →</button>
+    </div>
+  </div><!-- /page2 -->
+
+  <!-- ====== PAGE 3: 자금수요 ====== -->
+  <div class="page" id="page3">
+
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-purple">💰</div>자금 수요 현황</div>
+
+      <div class="fg">
+        <label class="fl">필요한 자금 종류 <span class="req">*</span> (복수 선택 가능)</label>
+        <div class="check-g" id="fundType">
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>정부 무상지원금</div>
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>운전자금 대환 (2.9%)</div>
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>시설자금 대환</div>
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>브릿지 대출 (45억)</div>
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>부채비율 개선 컨설팅</div>
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>R&amp;D 자금</div>
+          <div class="chk" onclick="togChk(this)"><div class="chk-box"><span class="chk-mark">✓</span></div>TCB 자금</div>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">필요 자금 규모</label>
+        <select class="fs" id="fundAmount">
+          <option value="">선택</option>
+          <option>3,000만원 이하</option>
+          <option>3,000만 ~ 5,000만원</option>
+          <option>5,000만 ~ 1억원</option>
+          <option>1억 ~ 5억원</option>
+          <option>5억 ~ 15억원</option>
+          <option>15억 이상</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">현재 대출 현황</label>
+        <div class="radio-g">
+          <div class="rbtn" onclick="selRadio(this)">없음</div>
+          <div class="rbtn" onclick="selRadio(this)">1금융권</div>
+          <div class="rbtn" onclick="selRadio(this)">2금융권</div>
+          <div class="rbtn" onclick="selRadio(this)">복수 금융</div>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">자금 필요 시기</label>
+        <div class="radio-g">
+          <div class="rbtn" onclick="selRadio(this)">즉시 (1개월 내)</div>
+          <div class="rbtn" onclick="selRadio(this)">1~3개월</div>
+          <div class="rbtn" onclick="selRadio(this)">3~6개월</div>
+          <div class="rbtn" onclick="selRadio(this)">6개월 이후</div>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">추가 문의 사항</label>
+        <textarea class="fta" id="memo" placeholder="자금 조달과 관련한 현재 상황이나 문의 사항을 자유롭게 작성해 주세요."></textarea>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn-prev" onclick="goPage(2)">← 이전</button>
+      <button class="btn-next" onclick="goPage(4)">다음 단계 →</button>
+    </div>
+  </div><!-- /page3 -->
+
+  <!-- ====== PAGE 4: 약관/제출 ====== -->
+  <div class="page" id="page4">
+
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-gold">📋</div>개인정보 수집 및 이용 동의</div>
+
+      <div class="terms-scroll">
+        <strong>[필수] 개인정보 수집 및 이용에 관한 동의</strong><br><br>
+        수집 항목: 기업명, 사업자등록번호, 대표자 성명, 연락처, 이메일 주소, 자금 관련 정보<br><br>
+        수집 목적: 수원시특례지원금 세미나 신청 접수, 자격 검토 및 안내, 나이스평가정보 쿠폰 발급<br><br>
+        보유 기간: 세미나 종료 후 1년 (단, 법령에 따라 별도 보존이 필요한 경우 해당 기간)<br><br>
+        귀하는 동의를 거부할 권리가 있으나, 거부 시 세미나 신청 및 쿠폰 발급 서비스 이용이 제한될 수 있습니다.
+      </div>
+      <div class="agree-row" onclick="togAgree('ag1')">
+        <div class="ag-box" id="ag1">✓</div>
+        <div class="ag-lbl"><span>[필수]</span> 개인정보 수집 및 이용에 동의합니다</div>
+      </div>
+
+      <div class="terms-scroll" style="margin-top:10px;">
+        <strong>[필수] 마케팅 정보 수신 동의</strong><br><br>
+        수원시특례지원금 관련 세미나, 자금지원 프로그램 안내, 나이스평가정보 자가진단 서비스 관련 정보를 문자(SMS) 또는 이메일로 발송할 수 있습니다.
+      </div>
+      <div class="agree-row" onclick="togAgree('ag2')">
+        <div class="ag-box" id="ag2">✓</div>
+        <div class="ag-lbl"><span>[필수]</span> 마케팅 정보 수신에 동의합니다</div>
+      </div>
+    </div>
+
+    <!-- 세미나 일정 확인 -->
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-teal">📅</div>세미나 일정 확인</div>
+      <div class="seminar-grid">
+        <div class="sg-cell">
+          <div class="sg-lbl">일시</div>
+          <div class="sg-val">2026. 6. 9 (화)<br>오전 11시</div>
+        </div>
+        <div class="sg-cell">
+          <div class="sg-lbl">장소</div>
+          <div class="sg-val">우성테크노파크<br>지하 3층 회의실</div>
+        </div>
+        <div class="sg-cell highlight">
+          <div class="sg-lbl">참가비</div>
+          <div class="sg-val teal">무 료</div>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top:12px;">
+        ⚠ 세미나 신청 인원은 15명으로 제한됩니다. 신청 완료 순서대로 확정되며 마감 후 추가 신청은 불가합니다.
+      </div>
+    </div>
+
+    <!-- 주최·협력 기관 -->
+    <div class="card">
+      <div class="card-title"><div class="card-icon ci-gold">🏛️</div>주최 · 협력 기관</div>
+      <div style="margin-bottom:12px;">
+        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.5px;margin-bottom:6px;">주최기관</div>
+        <div class="mou-org" style="border-color:#C8A02050;">
+          <div class="mou-dot" style="background:#C8A02018;color:var(--gold);">🏢</div>
+          <div style="font-size:14px;font-weight:700;color:var(--gold);">한국기업진단평가원</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.5px;margin-bottom:6px;">MOU 업체</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="mou-org">
+            <div class="mou-dot" style="background:#18967A18;color:var(--teal2);">🤝</div>
+            <div style="font-size:13px;color:#B0BDD0;font-weight:600;">사단법인 수원산업단지관리공단</div>
+          </div>
+          <div class="mou-org">
+            <div class="mou-dot" style="background:#18967A18;color:var(--teal2);">🤝</div>
+            <div style="font-size:13px;color:#B0BDD0;font-weight:600;">경기 중소기업경영 지원팀</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn-prev" onclick="goPage(3)">← 이전</button>
+      <div class="sub-wrap">
+        <button class="btn-next" id="submitBtn" onclick="submitForm()">✅ 신청서 제출하기</button>
+        <div class="sub-loading" id="subLoading"><div class="spin"></div> 제출 중…</div>
+      </div>
+    </div>
+  </div><!-- /page4 -->
+
+  <!-- ====== PAGE 5: 완료 ====== -->
+  <div class="page" id="page5">
+    <div class="success-wrap">
+      <div class="success-icon">✅</div>
+      <div class="success-title">신청이 완료되었습니다!</div>
+      <div class="success-sub">
+        수원시특례지원금 중소기업 무상자금 세미나<br>
+        신청이 정상적으로 접수되었습니다.<br>
+        담당자가 확인 후 <strong>24시간 내 연락</strong>드립니다.
+      </div>
+
+      <div class="coupon-issued">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:6px;">🎁 나이스평가정보 자가진단 쿠폰</div>
+        <div class="coupon-code" id="couponCode">–</div>
+        <div style="font-size:14px;font-weight:700;color:var(--teal2);margin:8px 0;">세미나 현장에서 수령</div>
+        <div class="coupon-sub">세미나 당일 현장 담당자에게<br>신청 확인 후 쿠폰을 즉시 발급해 드립니다</div>
+      </div>
+
+      <div class="receipt" id="receiptCard">
+        <div class="receipt-hd">📄 접수 확인서</div>
+        <div class="receipt-row"><span class="rl">접수번호</span><span class="rv" id="rNum">#2026-0000</span></div>
+        <div class="receipt-row"><span class="rl">기업명</span><span class="rv" id="rCompany">–</span></div>
+        <div class="receipt-row"><span class="rl">대표자</span><span class="rv" id="rCeo">–</span></div>
+        <div class="receipt-row"><span class="rl">연락처</span><span class="rv" id="rPhone">–</span></div>
+        <div class="receipt-row"><span class="rl">접수 일시</span><span class="rv" id="rDate">–</span></div>
+        <div class="receipt-row"><span class="rl">세미나 일정</span><span class="rv">2026. 6. 9 (화) 오전 11시<br>우성테크노파크 지하 3층 회의실</span></div>
+      </div>
+
+      <!-- 카카오 공유 -->
+      <div class="share-card">
+        <div class="card-title" style="justify-content:center;margin-bottom:8px;">
+          <div class="card-icon ci-gold">💬</div>지인에게 공유하기
+        </div>
+        <p>세미나 정보를 주변 대표님들과<br>카카오톡으로 공유해보세요!</p>
+        <button class="btn-kakao" onclick="shareKakao()">
+          <svg viewBox="0 0 24 24" fill="#191919" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3C6.477 3 2 6.477 2 10.9c0 2.796 1.606 5.26 4.033 6.715L5.09 21l4.545-2.273C10.078 18.872 11.03 19 12 19c5.523 0 10-3.477 10-7.9S17.523 3 12 3z"/>
+          </svg>
+          카카오톡으로 공유하기
+        </button>
+        <div class="url-box">
+          <span id="shareUrlDisplay">신청 페이지 URL</span>
+          <button class="btn-copy" id="copyBtn" onclick="copyUrl()">복사</button>
+        </div>
+        <div class="admin-box">
+          <div class="ah">📊 신청자 현황 확인 (관리자용)</div>
+          <p>신청 데이터는 Google Sheets에 자동 저장됩니다.<br>
+          <a href="#" onclick="togGuide();return false;">▶ Google Sheets 연동 가이드 보기</a></p>
+        </div>
+      </div>
+
+      <!-- 관리자 가이드 -->
+      <div id="adminGuide" style="display:none;">
+        <div class="admin-guide">
+          <div class="card-title"><div class="card-icon ci-teal">⚙️</div>Google Sheets 연동 방법</div>
+          <div style="font-size:13px;color:#B0BDD0;line-height:2;">
+            <strong style="color:var(--gold);">① Google Sheets 생성</strong><br>
+            sheets.google.com → 새 스프레드시트 생성<br><br>
+            <strong style="color:var(--gold);">② Apps Script 설정</strong><br>
+            확장 프로그램 → Apps Script → 아래 코드 붙여넣기
+            <div class="code-block">
+function doPost(e) {<br>
+&nbsp;&nbsp;const d = JSON.parse(e.postData.contents);<br>
+&nbsp;&nbsp;const s = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();<br>
+&nbsp;&nbsp;s.appendRow([d.receipt_num, d.company_name, d.ceo_name, d.phone, d.email, d.industry, d.biz_age, d.fund_types, d.fund_amount, d.memo]);<br>
+&nbsp;&nbsp;return ContentService.createTextOutput('OK');<br>
+}
+            </div>
+            <strong style="color:var(--gold);">③ 웹앱 배포</strong><br>
+            배포 → 새 배포 → 웹 앱 → 액세스: 모든 사용자 → 배포<br><br>
+            <strong style="color:var(--gold);">④ URL 설정</strong><br>
+            이 HTML 파일 상단 <code style="color:var(--teal2);">SHEETS_URL</code> 변수에 배포 URL 붙여넣기
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-next" style="width:100%;margin-top:16px;" onclick="window.print()">🖨️ 접수확인서 인쇄</button>
+    </div>
+  </div><!-- /page5 -->
+
+</div><!-- /main -->
+
+<script>
+// ============================================================
+// 🔧 설정 영역 — 지역/행사 바꿀 때 여기만 수정
+// ============================================================
+const SHEETS_URL   = 'https://suwon-fund-apply-production.up.railway.app/api/apply';
+const KAKAO_APP_KEY = 'YOUR_KAKAO_JAVASCRIPT_KEY_HERE';
+const APP_URL       = window.location.href.split('?')[0];
+// ============================================================
+
+// 카카오 초기화
+try {
+  if (KAKAO_APP_KEY !== 'YOUR_KAKAO_JAVASCRIPT_KEY_HERE') Kakao.init(KAKAO_APP_KEY);
+} catch(e) {}
+
+let cur = 1;
+const TOTAL = 4;
+
+function goPage(n) {
+  if (n > cur && !validate(cur)) return;
+  document.getElementById('page' + cur).classList.remove('active');
+  document.getElementById('page' + n).classList.add('active');
+  for (let i = 1; i <= TOTAL; i++) {
+    const el = document.getElementById('s' + i);
+    el.className = 'step';
+    const dot = el.querySelector('.step-dot');
+    if (i < n)  { el.classList.add('done');   dot.textContent = '✓'; }
+    if (i === n){ el.classList.add('active');  dot.textContent = i; }
+    if (i > n)  dot.textContent = i;
+    if (n > TOTAL) el.classList.add('done');
+  }
+  cur = n;
+  window.scrollTo(0, 0);
+}
+
+function validate(p) {
+  if (p === 1) {
+    if (!document.getElementById('companyName').value.trim() ||
+        !document.getElementById('bizNum').value.trim() ||
+        !document.getElementById('industry').value ||
+        !document.getElementById('bizAge').value) {
+      alert('기업명, 사업자등록번호, 업종, 업력은 필수 입력 항목입니다.');
+      return false;
+    }
+  }
+  if (p === 2) {
+    if (!document.getElementById('ceoName').value.trim() ||
+        !document.getElementById('phone').value.trim()) {
+      alert('대표자 성명과 연락처는 필수 입력 항목입니다.');
+      return false;
+    }
+  }
+  return true;
+}
+
+function selRadio(el) {
+  el.closest('.radio-g').querySelectorAll('.rbtn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+function togChk(el) { el.classList.toggle('sel'); }
+
+function togAgree(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('on');
+}
+
+async function submitForm() {
+  if (!document.getElementById('ag1').classList.contains('on') ||
+      !document.getElementById('ag2').classList.contains('on')) {
+    alert('필수 약관에 모두 동의해 주세요.');
+    return;
+  }
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('subLoading').style.display = 'flex';
+
+  const company    = document.getElementById('companyName').value || '–';
+  const ceo        = document.getElementById('ceoName').value || '–';
+  const phone      = document.getElementById('phone').value || '–';
+  const email      = document.getElementById('email').value || '–';
+  const industry   = document.getElementById('industry').value || '–';
+  const bizAge     = document.getElementById('bizAge').value || '–';
+  const fundAmount = document.getElementById('fundAmount').value || '–';
+  const memo       = document.getElementById('memo').value || '–';
+  const fundTypes  = [...document.querySelectorAll('#fundType .chk.sel')]
+                       .map(el => el.textContent.trim()).join(', ') || '–';
+
+  const num    = Math.floor(Math.random() * 9000) + 1000;
+  const coupon = 'NICE-2026-' + Math.random().toString(36).substring(2,6).toUpperCase();
+  const now    = new Date();
+  const dateStr = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+  const data = {
+    receipt_num: '#2026-' + num,
+    region: '수원-우성테크노파크',
+    company_name: company, ceo_name: ceo, phone, email,
+    industry, biz_age: bizAge, fund_types: fundTypes,
+    fund_amount: fundAmount, memo, coupon_code: coupon
+  };
+
+  try {
+    await fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  } catch(e) { console.log('전송 오류:', e); }
+
+  document.getElementById('couponCode').textContent = coupon;
+  document.getElementById('rNum').textContent = data.receipt_num;
+  document.getElementById('rCompany').textContent = company;
+  document.getElementById('rCeo').textContent = ceo;
+  document.getElementById('rPhone').textContent = phone;
+  document.getElementById('rDate').textContent = dateStr;
+  document.getElementById('shareUrlDisplay').textContent = APP_URL;
+
+  document.getElementById('page4').classList.remove('active');
+  document.getElementById('page5').classList.add('active');
+  document.getElementById('submitBtn').style.display = '';
+  document.getElementById('subLoading').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+
+function shareKakao() {
+  if (typeof Kakao === 'undefined' || !Kakao.isInitialized()) {
+    alert('카카오 앱 키를 설정한 후 사용 가능합니다.');
+    return;
+  }
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: '🏢 수원시특례지원금 중소기업 무상자금 신청',
+      description: '최대 7,000만 무상지원 | 금리 2.9% 고정 | 선착순 15명 무료 세미나\n📅 2026. 6. 9 (화) 오전 11시 | 우성테크노파크 지하 3층 회의실',
+      imageUrl: '',
+      link: { mobileWebUrl: APP_URL, webUrl: APP_URL }
+    },
+    buttons: [{ title: '지금 바로 신청하기', link: { mobileWebUrl: APP_URL, webUrl: APP_URL } }]
+  });
+}
+
+function copyUrl() {
+  const btn = document.getElementById('copyBtn');
+  navigator.clipboard?.writeText(APP_URL).then(() => {
+    btn.textContent = '✓ 복사됨'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = APP_URL; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = '✓ 복사됨'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function togGuide() {
+  const g = document.getElementById('adminGuide');
+  g.style.display = g.style.display === 'none' ? 'block' : 'none';
+}
+
+// 사업자번호 자동 포맷
+document.getElementById('bizNum').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g,'');
+  if (v.length >= 4) v = v.slice(0,3) + '-' + v.slice(3);
+  if (v.length >= 7) v = v.slice(0,6) + '-' + v.slice(6);
+  this.value = v.slice(0,12);
+});
+
+// 전화번호 자동 포맷
+document.getElementById('phone').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g,'');
+  if (v.length >= 4) v = v.slice(0,3) + '-' + v.slice(3);
+  if (v.length >= 9) v = v.slice(0,8) + '-' + v.slice(8);
+  this.value = v.slice(0,13);
+});
+</script>
+</body>
+</html>
